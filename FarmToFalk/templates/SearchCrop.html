@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Crop</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/SearchCrop.css' %}">
+</head>
+<body>
+    <div class="main">
+
+    <div class="container">
+        <form action="" class="search" method="GET">
+            <input type="text" placeholder="Search for crop" name="searchname">
+            <button type="submit"> <img src="{% static 'css/Search-icon.png' %}" alt=""></button>
+        </form>
+    </div>
+     <table class="content-table">
+        <thead>
+          <tr>
+                <th>Sno</th>
+                <th>Crop</th>
+                <th>ph</th>
+                <th>N</th>
+                <th>P</th>
+                <th>K</th>
+                <th>Rainfall</th>
+                <th>Humidity</th>
+                <th>Temeprature</th>
+          </tr>
+        </thead>
+        {% for r in Search_details %}
+        <tbody>
+          <tr>
+            <th>{{forloop.counter}}</th>
+            <td>{{r.Crop}}</td>
+            <td>{{r.ph}}</td>
+            <td>{{r.N}}</td>
+            <td>{{r.P}}</td>
+            <td>{{r.K}}</td>
+            <td>{{r.Rainfall}}</td>
+            <td>{{r.Humidity}}</td>
+            <td>{{r.Temeprature}}</td>
+          </tr>
+          {% empty %}
+          No Data Found
+          {% endfor %}
+        </tbody>
+      </table>
+              
+    </div>
+</body>
+</html>
